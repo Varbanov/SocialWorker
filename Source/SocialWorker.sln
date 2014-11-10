@@ -3,8 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B45178D9-3858-4D51-B36A-6BE5689637B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{9060F007-75FC-465D-916C-7F8174A7B603}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{F4CCB8F1-63A4-4ED1-B5B9-B4DA11296FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorker.Common", "SocialWorker.Common\SocialWorker.Common.csproj", "{9B204C37-3228-403F-B6D6-5CC422CD81B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorker.Data", "SocialWorker.Data\SocialWorker.Data.csproj", "{7496CBDD-1C9A-4026-AF1A-0994ADC270FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorker.Models", "SocialWorker.Models\SocialWorker.Models.csproj", "{300FF9D2-8B77-4341-BC40-A321349F76C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorker.Web", "SocialWorker.Web\SocialWorker.Web.csproj", "{E7F5AEC0-9674-4BEA-9C88-721412B95C6B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B204C37-3228-403F-B6D6-5CC422CD81B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B204C37-3228-403F-B6D6-5CC422CD81B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B204C37-3228-403F-B6D6-5CC422CD81B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B204C37-3228-403F-B6D6-5CC422CD81B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7496CBDD-1C9A-4026-AF1A-0994ADC270FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7496CBDD-1C9A-4026-AF1A-0994ADC270FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7496CBDD-1C9A-4026-AF1A-0994ADC270FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7496CBDD-1C9A-4026-AF1A-0994ADC270FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{300FF9D2-8B77-4341-BC40-A321349F76C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{300FF9D2-8B77-4341-BC40-A321349F76C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{300FF9D2-8B77-4341-BC40-A321349F76C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{300FF9D2-8B77-4341-BC40-A321349F76C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7F5AEC0-9674-4BEA-9C88-721412B95C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7F5AEC0-9674-4BEA-9C88-721412B95C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7F5AEC0-9674-4BEA-9C88-721412B95C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7F5AEC0-9674-4BEA-9C88-721412B95C6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7496CBDD-1C9A-4026-AF1A-0994ADC270FF} = {B45178D9-3858-4D51-B36A-6BE5689637B5}
+		{300FF9D2-8B77-4341-BC40-A321349F76C2} = {B45178D9-3858-4D51-B36A-6BE5689637B5}
+		{E7F5AEC0-9674-4BEA-9C88-721412B95C6B} = {F4CCB8F1-63A4-4ED1-B5B9-B4DA11296FB0}
 	EndGlobalSection
 EndGlobal
