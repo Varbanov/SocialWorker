@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorker.Web", "SocialW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorker.Data.Models", "SocialWorker.Data.Models\SocialWorker.Data.Models.csproj", "{34C3EA06-CED2-4167-A9F1-65DF4D7B4927}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorker.Data.Common", "SocialWorker.Data\SocialWorker.Data.Common\SocialWorker.Data.Common.csproj", "{5D1E8BA3-2C38-4794-ACD6-84375FBC1C54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{34C3EA06-CED2-4167-A9F1-65DF4D7B4927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C3EA06-CED2-4167-A9F1-65DF4D7B4927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C3EA06-CED2-4167-A9F1-65DF4D7B4927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D1E8BA3-2C38-4794-ACD6-84375FBC1C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D1E8BA3-2C38-4794-ACD6-84375FBC1C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D1E8BA3-2C38-4794-ACD6-84375FBC1C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D1E8BA3-2C38-4794-ACD6-84375FBC1C54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +53,6 @@ Global
 		{7496CBDD-1C9A-4026-AF1A-0994ADC270FF} = {B45178D9-3858-4D51-B36A-6BE5689637B5}
 		{E7F5AEC0-9674-4BEA-9C88-721412B95C6B} = {F4CCB8F1-63A4-4ED1-B5B9-B4DA11296FB0}
 		{34C3EA06-CED2-4167-A9F1-65DF4D7B4927} = {B45178D9-3858-4D51-B36A-6BE5689637B5}
+		{5D1E8BA3-2C38-4794-ACD6-84375FBC1C54} = {B45178D9-3858-4D51-B36A-6BE5689637B5}
 	EndGlobalSection
 EndGlobal

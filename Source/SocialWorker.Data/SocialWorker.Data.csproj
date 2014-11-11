@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,11 +61,16 @@
       <Project>{34c3ea06-ced2-4167-a9f1-65df4d7b4927}</Project>
       <Name>SocialWorker.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="SocialWorker.Data.Common\SocialWorker.Data.Common.csproj">
+      <Project>{5d1e8ba3-2c38-4794-acd6-84375fbc1c54}</Project>
+      <Name>SocialWorker.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -260,6 +260,10 @@
       <Project>{34c3ea06-ced2-4167-a9f1-65df4d7b4927}</Project>
       <Name>SocialWorker.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SocialWorker.Data\SocialWorker.Data.Common\SocialWorker.Data.Common.csproj">
+      <Project>{5d1e8ba3-2c38-4794-acd6-84375fbc1c54}</Project>
+      <Name>SocialWorker.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialWorker.Data\SocialWorker.Data.csproj">
       <Project>{7496cbdd-1c9a-4026-af1a-0994adc270ff}</Project>
       <Name>SocialWorker.Data</Name>

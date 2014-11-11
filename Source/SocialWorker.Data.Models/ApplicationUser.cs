@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using SocialWorker.Data.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,15 @@ using System.Threading.Tasks;
 
 namespace SocialWorker.Data
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
+
+        public ApplicationUser()
+        {
+            //prevent Usermanager.CreateAsync from trowing exception
+            this.CreatedOn = DateTime.Now;
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -18,5 +26,16 @@ namespace SocialWorker.Data
             // Add custom user claims here
             return userIdentity;
         }
+
+        public DateTime CreatedOn {get; set;}
+
+        public bool PreserveCreatedOn {get; set;}
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
+       
     }
 }
