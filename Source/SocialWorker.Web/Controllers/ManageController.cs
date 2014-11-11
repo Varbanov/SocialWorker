@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SocialWorker.Web.Models;
+using SocialWorker.Data;
 
 namespace SocialWorker.Web.Controllers
 {

@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using SocialWorker.Web.Models;
+using SocialWorker.Data;
 
 namespace SocialWorker.Web
 {
