@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using SocialWorker.Data.Common.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -33,6 +34,7 @@ namespace SocialWorker.Data
 
         public DateTime? ModifiedOn { get; set; }
 
+        [Index]
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
