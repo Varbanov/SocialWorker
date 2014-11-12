@@ -258,17 +258,21 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SocialWorker.Data.Models\SocialWorker.Data.Models.csproj">
-      <Project>{34c3ea06-ced2-4167-a9f1-65df4d7b4927}</Project>
-      <Name>SocialWorker.Data.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SocialWorker.Data\SocialWorker.Data.Common\SocialWorker.Data.Common.csproj">
+    <ProjectReference Include="..\Data\SocialWorker.Data.Common\SocialWorker.Data.Common.csproj">
       <Project>{5d1e8ba3-2c38-4794-acd6-84375fbc1c54}</Project>
       <Name>SocialWorker.Data.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SocialWorker.Data\SocialWorker.Data.csproj">
+    <ProjectReference Include="..\Data\SocialWorker.Data.Models\SocialWorker.Data.Models.csproj">
+      <Project>{34c3ea06-ced2-4167-a9f1-65df4d7b4927}</Project>
+      <Name>SocialWorker.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\SocialWorker.Data\SocialWorker.Data.csproj">
       <Project>{7496cbdd-1c9a-4026-af1a-0994adc270ff}</Project>
       <Name>SocialWorker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialWorker.Common\SocialWorker.Common.csproj">
+      <Project>{9b204c37-3228-403f-b6d6-5cc422cd81b0}</Project>
+      <Name>SocialWorker.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
