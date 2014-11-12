@@ -5,24 +5,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
-using SocialWorker.Web.ViewModels.Home; 
+using SocialWorker.Web.ViewModels.Home;
+using System.Data.Entity;
+using SocialWorker.Data; 
 
 namespace SocialWorker.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private List<Meal> meals = new List<Meal>()
+        private DbContext data;
+
+        public HomeController(DbContext context)
         {
-            new Meal() { Description="meal 1"},
-            new Meal() { Description="meal 2"},
-            new Meal() { Description="meal 3"},
-        };
-
-
+            this.data = context;
+        }
 
         public ActionResult Index()
         {
-            var meals = this.meals.AsQueryable()
+            var meals = (this.data as ApplicationDbContext).Meals
                 .Project().To<MealViewModel>();
 
 
