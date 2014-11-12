@@ -7,22 +7,35 @@ using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using SocialWorker.Web.ViewModels.Home;
 using System.Data.Entity;
-using SocialWorker.Data; 
+using SocialWorker.Data;
+using SocialWorker.Data.Common.Repository;
 
 namespace SocialWorker.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private DbContext data;
+        private ApplicationDbContext data;
 
-        public HomeController(DbContext context)
+        private IDeletableEntityRepository<Meal> mealRepo;
+
+        public HomeController(ApplicationDbContext context)
         {
             this.data = context;
+            mealRepo = new DeletableEntityRepository<Meal>(this.data);
+
         }
 
         public ActionResult Index()
         {
-            var meals = (this.data as ApplicationDbContext).Meals
+            mealRepo.Delete(4);
+            var meal5 = mealRepo.GetById(5);
+
+            //mealRepo.ActualDelete(meal5);
+            data.SaveChanges();
+
+
+
+            var meals = this.mealRepo.AllWithDeleted()
                 .Project().To<MealViewModel>();
 
 

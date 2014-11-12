@@ -1,7 +1,9 @@
 ﻿namespace SocialWorker.Data.Common.Repository
 {
     using SocialWorker.Data.Common.Models;
+    using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
 
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
@@ -21,5 +23,23 @@
         {
             return base.All();
         }
+
+        public override void Delete(T entity)
+        {
+            entity.IsDeleted = true;
+            entity.DeletedOn = DateTime.Now;
+
+            DbEntityEntry entry = this.Context.Entry(entity);
+            entry.State = EntityState.Modified;
+        }
+
+        public void ActualDelete(T entity)
+        {
+            base.Delete(entity);
+        }
+
+
+
+
     }
 }
