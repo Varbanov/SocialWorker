@@ -30,9 +30,9 @@ namespace SocialWorker.Data
             get { return this.GetDeletableEntityRepository<Meal>(); }
         }
 
-        public IRepository<AppUser> Users
+        public IRepository<User> Users
         {
-            get { return this.GetRepository<AppUser>(); }
+            get { return this.GetRepository<User>(); }
         }
 
         public int SaveChanges()
@@ -77,6 +77,19 @@ namespace SocialWorker.Data
         public IDeletableEntityRepository<DoctorVisit> DoctorVisits
         {
             get { return this.GetDeletableEntityRepository<DoctorVisit>(); }
+        }
+
+
+        public IDeletableEntityRepository<Visit> Visits
+        {
+            get { return this.GetDeletableEntityRepository<Visit>(); }
+
+        }
+
+        public IDeletableEntityRepository<Medicine> Medicine
+        {
+            get { return this.GetDeletableEntityRepository<Medicine>(); }
+
         }
     }
 }

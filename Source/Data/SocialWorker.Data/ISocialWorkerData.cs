@@ -11,7 +11,14 @@
 
         IDeletableEntityRepository<DoctorVisit> DoctorVisits { get; }
 
-        IRepository<AppUser> Users { get; }
+        IDeletableEntityRepository<Visit> Visits { get; }
+
+        IDeletableEntityRepository<Medicine> Medicine { get; }
+
+
+
+
+        IRepository<User> Users { get; }
 
         int SaveChanges();
 

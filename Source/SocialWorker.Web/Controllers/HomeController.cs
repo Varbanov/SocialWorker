@@ -9,6 +9,7 @@ using SocialWorker.Web.ViewModels.Home;
 using System.Data.Entity;
 using SocialWorker.Data;
 using SocialWorker.Data.Common.Repository;
+using Microsoft.AspNet.Identity;
 
 namespace SocialWorker.Web.Controllers
 {
@@ -22,6 +23,7 @@ namespace SocialWorker.Web.Controllers
         {
             this.data = context;
             mealRepo = new DeletableEntityRepository<Meal>(this.data);
+
 
         }
 

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace SocialWorker.Data
 {
-    public class SocialWorkerDbContext : IdentityDbContext<AppUser>, ISocialWorkerDbContext
+    public class SocialWorkerDbContext : IdentityDbContext<User>, ISocialWorkerDbContext
     {
         public SocialWorkerDbContext()
             : this("DefaultConnection")
@@ -19,6 +19,7 @@ namespace SocialWorker.Data
             : base(nameOrConnectionString, throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<SocialWorkerDbContext, Configuration>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<SocialWorkerDbContext>());
         }
 
         public virtual IDbSet<Meal> Meals { get; set; }
@@ -72,5 +73,9 @@ namespace SocialWorker.Data
 
 
         public IDbSet<DoctorVisit> DoctorVisits { get; set; }
+
+        public IDbSet<Visit> Visits { get; set; }
+
+        public IDbSet<Medicine> Medicines { get; set; }
     }
 }

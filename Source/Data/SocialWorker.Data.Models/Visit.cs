@@ -25,13 +25,13 @@ namespace SocialWorker.Data.Models
 
         public string HouseholdWork { get; set; }
 
-        public int ClientId { get; set; }
+        public string ClientId { get; set; }
 
-        public virtual AppUser Client { get; set; }
+        public virtual User Client { get; set; }
 
-        public int SocialWorkerId { get; set; }
+        public string SocialWorkerId { get; set; }
 
-        public virtual AppUser SocialWorker { get; set; }
+        public virtual User SocialWorker { get; set; }
 
         public int MealId { get; set; }
 

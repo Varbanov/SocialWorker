@@ -22,9 +22,9 @@ namespace SocialWorker.Data.Models
 
         public string Description { get; set; }
 
-        public int ClientId { get; set; }
+        public string ClientId { get; set; }
 
-        public virtual AppUser Client { get; set; }
+        public virtual User Client { get; set; }
 
 
     }

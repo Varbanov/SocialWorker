@@ -6,11 +6,16 @@
 
     public interface ISocialWorkerDbContext
     {
-        IDbSet<AppUser> Users { get; set; }
+        IDbSet<User> Users { get; set; }
 
         IDbSet<Meal> Meals { get; set; }
 
         IDbSet<DoctorVisit> DoctorVisits { get; set; }
+
+        IDbSet<Visit> Visits { get; set; }
+
+        IDbSet<Medicine> Medicines { get; set; }
+
 
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

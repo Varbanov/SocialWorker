@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace SocialWorker.Data
 {
-    public class AppUser : IdentityUser, IAuditInfo, IDeletableEntity
+    public class User : IdentityUser, IAuditInfo
     {
-        public AppUser()
+        public User()
         {
             //prevent Usermanager.CreateAsync from trowing exception
             this.CreatedOn = DateTime.Now;
@@ -25,12 +25,12 @@ namespace SocialWorker.Data
 
         public string LastName { get; set; }
 
-        public int Age { get; set; }
+        public int? Age { get; set; }
 
         //public string PersonalNumber { get; set; }
 
 
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -44,10 +44,6 @@ namespace SocialWorker.Data
 
         public DateTime? ModifiedOn { get; set; }
 
-        [Index]
-        public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
        
     }
 }
