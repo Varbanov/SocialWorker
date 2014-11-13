@@ -6,8 +6,8 @@
     using System.Data.Entity.Infrastructure;
     using System.Linq;
 
-    public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
-        where T : class, IDeletableEntity
+    public class DeletableEntityRepository<T> :
+        GenericRepository<T>, IDeletableEntityRepository<T> where T : class, IDeletableEntity
     {
         public DeletableEntityRepository(DbContext context)
             : base(context)

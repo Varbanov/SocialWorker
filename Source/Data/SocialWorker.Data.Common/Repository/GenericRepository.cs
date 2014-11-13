@@ -29,7 +29,7 @@
             return this.DbSet.AsQueryable();
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(object id)
         {
             return this.DbSet.Find(id);
         }
@@ -72,7 +72,7 @@
             }
         }
 
-        public virtual void Delete(int id)
+        public virtual void Delete(object id)
         {
             var entity = this.GetById(id);
 
@@ -98,5 +98,6 @@
         {
             this.Context.Dispose();
         }
+
     }
 }

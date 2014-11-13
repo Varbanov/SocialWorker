@@ -5,7 +5,7 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SocialWorkerDbContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(SocialWorkerDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

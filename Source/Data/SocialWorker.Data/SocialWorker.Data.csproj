@@ -52,7 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="ISocialWorkerData.cs" />
+    <Compile Include="SocialWorkerData.cs" />
+    <Compile Include="SocialWorkerDbContext.cs" />
+    <Compile Include="ISocialWorkerDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

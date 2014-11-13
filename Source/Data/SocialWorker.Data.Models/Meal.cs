@@ -9,17 +9,15 @@ using System.Threading.Tasks;
 
 namespace SocialWorker.Data.Models
 {
-    public class Meal : AuditInfo, IDeletableEntity
+    public class Meal : DeletableEntity
     {
         [Key]
         public int Id { get; set; }
 
+        public DateTime Date { get; set; }
+
+        public AppUser User { get; set; }
+
         public string Description { get; set; }
-
-        [Index]
-        public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
-       
     }
 }

@@ -14,11 +14,11 @@ namespace SocialWorker.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext data;
+        private SocialWorkerDbContext data;
 
         private IDeletableEntityRepository<Meal> mealRepo;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(SocialWorkerDbContext context)
         {
             this.data = context;
             mealRepo = new DeletableEntityRepository<Meal>(this.data);

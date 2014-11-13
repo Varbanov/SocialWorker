@@ -8,27 +8,35 @@ using System.Linq;
 
 namespace SocialWorker.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class SocialWorkerDbContext : IdentityDbContext<AppUser>, ISocialWorkerDbContext
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public SocialWorkerDbContext()
+            : this("DefaultConnection")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
-        public static ApplicationDbContext Create()
+        public SocialWorkerDbContext(string nameOrConnectionString)
+            : base(nameOrConnectionString, throwIfV1Schema: false)
         {
-            return new ApplicationDbContext();
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SocialWorkerDbContext, Configuration>());
         }
 
-        public IDbSet<Meal> Meals { get; set; }
+        public virtual IDbSet<Meal> Meals { get; set; }
 
 
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        public static SocialWorkerDbContext Create()
+        {
+            return new SocialWorkerDbContext();
+        }
 
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            //this.ApplyDeletableEntityRules();
             return base.SaveChanges();
         }
 
@@ -57,21 +65,8 @@ namespace SocialWorker.Data
             }
         }
 
-        //private void ApplyDeletableEntityRules()
-        //{
-        //    // Approach via @julielerman: http://bit.ly/123661P
-        //    foreach (
-        //        var entry in
-        //            this.ChangeTracker.Entries()
-        //                .Where(e => e.Entity is IDeletableEntity && (e.State == EntityState.Deleted)))
-        //    {
-        //        var entity = (IDeletableEntity)entry.Entity;
 
-        //        entity.DeletedOn = DateTime.Now;
-        //        entity.IsDeleted = true;
-        //        entry.State = EntityState.Modified;
-        //    }
-        //}
+
 
     }
 }

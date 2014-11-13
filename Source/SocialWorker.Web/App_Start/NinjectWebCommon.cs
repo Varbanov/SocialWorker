@@ -64,7 +64,7 @@ namespace SocialWorker.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             // TODO: configure ninject bindings
-            kernel.Bind<DbContext>().To<ApplicationDbContext>();
+            kernel.Bind<DbContext>().To<SocialWorkerDbContext>();
 
         }        
     }
