@@ -24,6 +24,7 @@ namespace SocialWorker.Data
         public virtual IDbSet<Meal> Meals { get; set; }
 
 
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
@@ -68,5 +69,8 @@ namespace SocialWorker.Data
 
 
 
+
+
+        public IDbSet<DoctorVisit> DoctorVisits { get; set; }
     }
 }

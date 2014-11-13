@@ -9,6 +9,8 @@
 
         IDeletableEntityRepository<Meal> Meals { get; }
 
+        IDeletableEntityRepository<DoctorVisit> DoctorVisits { get; }
+
         IRepository<AppUser> Users { get; }
 
         int SaveChanges();

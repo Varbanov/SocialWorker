@@ -71,6 +71,12 @@ namespace SocialWorker.Data
         }
 
 
-       
+
+
+
+        public IDeletableEntityRepository<DoctorVisit> DoctorVisits
+        {
+            get { return this.GetDeletableEntityRepository<DoctorVisit>(); }
+        }
     }
 }

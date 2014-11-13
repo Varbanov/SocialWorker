@@ -10,6 +10,9 @@
 
         IDbSet<Meal> Meals { get; set; }
 
+        IDbSet<DoctorVisit> DoctorVisits { get; set; }
+
+
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
         IDbSet<T> Set<T>() where T : class;
