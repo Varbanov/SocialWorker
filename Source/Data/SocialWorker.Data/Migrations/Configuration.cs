@@ -30,18 +30,49 @@
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            SeedAdmin(context);
+            this.SeedRoles(context);
+            this.SeedAdmin(context);
 
 
 
         }
 
+        private void SeedRoles(SocialWorkerDbContext context)
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            if (!roleManager.RoleExists("Admin"))
+            {
+                roleManager.Create(new IdentityRole("Admin"));
+            }
+
+            if (!roleManager.RoleExists("SocialWorker"))
+            {
+                roleManager.Create(new IdentityRole("SocialWorker"));
+            }
+
+            if (!roleManager.RoleExists("User"))
+            {
+                roleManager.Create(new IdentityRole("User"));
+            }
+
+            if (!roleManager.RoleExists("Doctor"))
+            {
+                roleManager.Create(new IdentityRole("Doctor"));
+            }
+
+            if (!roleManager.RoleExists("Client"))
+            {
+                roleManager.Create(new IdentityRole("Client"));
+            }
+        }
+
+
         private void SeedAdmin(SocialWorkerDbContext context)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            if (!roleManager.RoleExists("admin"))
+            if (!roleManager.RoleExists("Admin"))
             {
-                roleManager.Create(new IdentityRole("admin"));
+                throw new ArgumentNullException("Admin role is missing!");
             }
 
             var userManager = new UserManager<User>(new UserStore<User>(context));
@@ -55,8 +86,8 @@
             };
 
             var user = new User { UserName = "admin@socialworker.com", Email = "admin@socialworker.com" };
-            userManager.Create(user, "admin");
-            userManager.AddToRole(user.Id, "admin");
+            userManager.Create(user, "Admin");
+            userManager.AddToRole(user.Id, "Admin");
         }
 
     }
