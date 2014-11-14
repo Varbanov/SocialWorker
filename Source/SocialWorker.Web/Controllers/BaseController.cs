@@ -12,7 +12,7 @@
     using SocialWorker.Web.Infrastructure.UserProvider;
     using SocialWorker.Common;
 
-    public abstract class BaseController
+    public abstract class BaseController : Controller
     {
         private string currentUserId;
 
@@ -24,7 +24,17 @@
 
         protected ISocialWorkerData Data { get; set; }
 
-        protected string CurrentUserId { get; set; }
+        protected string CurrentUserId
+        {
+            get
+            {
+                return this.currentUserId;
+            }
+            //set
+            //{
+            //    this.currentUserId = value;
+            //}
+        }
 
         protected bool IsInRole(string userId, string roleName)
         {

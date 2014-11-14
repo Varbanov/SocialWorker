@@ -10,36 +10,30 @@ using System.Data.Entity;
 using SocialWorker.Data;
 using SocialWorker.Data.Common.Repository;
 using Microsoft.AspNet.Identity;
+using SocialWorker.Web.Infrastructure.UserProvider;
+using SocialWorker.Common;
 
 namespace SocialWorker.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private SocialWorkerDbContext data;
 
-        private IDeletableEntityRepository<Meal> mealRepo;
-
-        public HomeController(SocialWorkerDbContext context)
+        public HomeController(ISocialWorkerData data, IUserProvider userProvider )
+            : base(data, userProvider)
         {
-            this.data = context;
-            mealRepo = new DeletableEntityRepository<Meal>(this.data);
-
-
         }
 
         public ActionResult Index()
         {
-            mealRepo.Delete(4);
-            var meal5 = mealRepo.GetById(5);
+            var meals = this.Data.Meals.AllWithDeleted()
+                .Project()
+                .To<MealViewModel>().ToList();
 
-            //mealRepo.ActualDelete(meal5);
-            data.SaveChanges();
+            var id = this.CurrentUserId;
+            var admin = this.IsInRole(id, GlobalConstants.AdministrationRoleName);
 
-
-
-            var meals = this.mealRepo.AllWithDeleted()
-                .Project().To<MealViewModel>();
-
+            ViewBag.Id = id;
+            ViewBag.isAdmin= admin;
 
             return View(meals);
         }

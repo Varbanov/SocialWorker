@@ -12,6 +12,7 @@ namespace SocialWorker.Web.App_Start
     using Ninject.Web.Common;
     using System.Data.Entity;
     using SocialWorker.Data;
+    using SocialWorker.Web.Infrastructure.UserProvider;
 
     public static class NinjectWebCommon 
     {
@@ -64,7 +65,10 @@ namespace SocialWorker.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             // TODO: configure ninject bindings
-            kernel.Bind<DbContext>().To<SocialWorkerDbContext>();
+            kernel.Bind<ISocialWorkerDbContext>().To<SocialWorkerDbContext>();
+            kernel.Bind<ISocialWorkerData>().To<SocialWorkerData>();
+            kernel.Bind<IUserProvider>().To<UserProvider>();
+
 
         }        
     }
