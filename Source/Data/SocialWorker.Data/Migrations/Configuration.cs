@@ -7,6 +7,8 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using SocialWorker.Common;
+
 
     internal sealed class Configuration : DbMigrationsConfiguration<SocialWorkerDbContext>
     {
@@ -40,29 +42,29 @@
         private void SeedRoles(SocialWorkerDbContext context)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists(GlobalConstants.AdministrationRoleName))
             {
-                roleManager.Create(new IdentityRole("Admin"));
+                roleManager.Create(new IdentityRole(GlobalConstants.AdministrationRoleName));
             }
 
-            if (!roleManager.RoleExists("SocialWorker"))
+            if (!roleManager.RoleExists(GlobalConstants.SocialWorkerRoleName))
             {
-                roleManager.Create(new IdentityRole("SocialWorker"));
+                roleManager.Create(new IdentityRole(GlobalConstants.SocialWorkerRoleName));
             }
 
-            if (!roleManager.RoleExists("User"))
+            if (!roleManager.RoleExists(GlobalConstants.UserRoleName))
             {
-                roleManager.Create(new IdentityRole("User"));
+                roleManager.Create(new IdentityRole(GlobalConstants.UserRoleName));
             }
 
-            if (!roleManager.RoleExists("Doctor"))
+            if (!roleManager.RoleExists(GlobalConstants.DoctorRoleName))
             {
-                roleManager.Create(new IdentityRole("Doctor"));
+                roleManager.Create(new IdentityRole(GlobalConstants.DoctorRoleName));
             }
 
-            if (!roleManager.RoleExists("Client"))
+            if (!roleManager.RoleExists(GlobalConstants.ClientRoleName))
             {
-                roleManager.Create(new IdentityRole("Client"));
+                roleManager.Create(new IdentityRole(GlobalConstants.ClientRoleName));
             }
         }
 
@@ -70,9 +72,9 @@
         private void SeedAdmin(SocialWorkerDbContext context)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists(GlobalConstants.AdministrationRoleName))
             {
-                throw new ArgumentNullException("Admin role is missing!");
+                throw new ArgumentNullException("{0} role is missing!", GlobalConstants.AdministrationRoleName);
             }
 
             var userManager = new UserManager<User>(new UserStore<User>(context));
@@ -91,7 +93,7 @@
 
             var user = new User { UserName = "admin@socialworker.com", Email = "admin@socialworker.com" };
             userManager.Create(user, "admin");
-            userManager.AddToRole(user.Id, "Admin");
+            userManager.AddToRole(user.Id, GlobalConstants.AdministrationRoleName);
         }
 
     }

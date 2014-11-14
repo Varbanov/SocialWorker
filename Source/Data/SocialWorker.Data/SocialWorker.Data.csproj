@@ -60,6 +60,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SocialWorker.Common\SocialWorker.Common.csproj">
+      <Project>{9b204c37-3228-403f-b6d6-5cc422cd81b0}</Project>
+      <Name>SocialWorker.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialWorker.Data.Common\SocialWorker.Data.Common.csproj">
       <Project>{5d1e8ba3-2c38-4794-acd6-84375fbc1c54}</Project>
       <Name>SocialWorker.Data.Common</Name>
