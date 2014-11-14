@@ -18,7 +18,7 @@ namespace SocialWorker.Web.Controllers
     public class HomeController : BaseController
     {
 
-        public HomeController(ISocialWorkerData data, IUserProvider userProvider )
+        public HomeController(ISocialWorkerData data, IUserProvider userProvider)
             : base(data, userProvider)
         {
         }
