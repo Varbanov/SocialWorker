@@ -21,13 +21,16 @@ namespace SocialWorker.Web
         {
             //kendo bundle
             bundles.Add(new StyleBundle("~/Content/Kendo").Include(
-                "~/Content/Kendo/kendo.common-bootstrap.min.js",
+                "~/Content/Kendo/kendo.common.min.css",
+                "~/Content/Kendo/kendo.common-bootstrap.min.css",
                 "~/Content/Kendo/kendo.silver.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                //"~/Content/bootstrap-spacelab.css",
                      "~/Content/bootstrap-spacelab.css",
                      "~/Content/site.css"));
+
+            //bundles.Add(new StyleBundle("~/Content/common").Include(
+            //        "~/Content/site.css"));
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)

@@ -76,6 +76,10 @@
             }
 
             var userManager = new UserManager<User>(new UserStore<User>(context));
+            if (userManager.FindByEmail("admin@socialworker.com") != null)
+            {
+                return;
+            }
             userManager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 2,
@@ -86,7 +90,7 @@
             };
 
             var user = new User { UserName = "admin@socialworker.com", Email = "admin@socialworker.com" };
-            userManager.Create(user, "Admin");
+            userManager.Create(user, "admin");
             userManager.AddToRole(user.Id, "Admin");
         }
 
