@@ -11,6 +11,7 @@
     using Microsoft.AspNet.Identity;
     using SocialWorker.Web.Infrastructure.UserProvider;
     using SocialWorker.Common;
+    using System.Collections.Generic;
 
     public abstract class BaseController : Controller
     {
@@ -29,6 +30,7 @@
             get
             {
                 return this.currentUserId;
+
             }
             //set
             //{

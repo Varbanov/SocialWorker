@@ -56,6 +56,7 @@
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IDeletableEntityRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="SeedUtilities\RandomGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

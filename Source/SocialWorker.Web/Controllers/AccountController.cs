@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SocialWorker.Web.Models;
 using SocialWorker.Data;
+using SocialWorker.Common;
 
 namespace SocialWorker.Web.Controllers
 {
@@ -138,18 +139,16 @@ namespace SocialWorker.Web.Controllers
             }
         }
 
-        //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles=GlobalConstants.AdministrationRoleName)]
         public ActionResult Register()
         {
             return View();
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = GlobalConstants.AdministrationRoleName)]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {

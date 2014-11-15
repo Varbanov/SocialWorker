@@ -1,4 +1,5 @@
-﻿using SocialWorker.Data.Common.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using SocialWorker.Data.Common.Models;
 using SocialWorker.Data.Common.Repository;
 using SocialWorker.Data.Models;
 using System;
@@ -34,6 +35,7 @@ namespace SocialWorker.Data
         {
             get { return this.GetRepository<User>(); }
         }
+
 
         public int SaveChanges()
         {
@@ -90,6 +92,12 @@ namespace SocialWorker.Data
         {
             get { return this.GetDeletableEntityRepository<Medicine>(); }
 
+        }
+
+
+        public IRepository<IdentityRole> Roles
+        {
+            get { return this.GetRepository<IdentityRole>(); }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace SocialWorker.Data
 
         public int? Age { get; set; }
 
-        //public string PersonalNumber { get; set; }
+        public string PersonalNumber { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

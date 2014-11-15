@@ -22,10 +22,6 @@ namespace SocialWorker.Data
             //Database.SetInitializer(new DropCreateDatabaseAlways<SocialWorkerDbContext>());
         }
 
-        public virtual IDbSet<Meal> Meals { get; set; }
-
-
-
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
@@ -70,7 +66,7 @@ namespace SocialWorker.Data
 
 
 
-
+        public virtual IDbSet<Meal> Meals { get; set; }
 
         public IDbSet<DoctorVisit> DoctorVisits { get; set; }
 

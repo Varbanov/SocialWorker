@@ -1,8 +1,9 @@
 ﻿namespace SocialWorker.Data
 {
-    using SocialWorker.Data.Models;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
+    using Microsoft.AspNet.Identity.EntityFramework;
+using SocialWorker.Data.Models;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
     public interface ISocialWorkerDbContext
     {
@@ -15,8 +16,6 @@
         IDbSet<Visit> Visits { get; set; }
 
         IDbSet<Medicine> Medicines { get; set; }
-
-
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 

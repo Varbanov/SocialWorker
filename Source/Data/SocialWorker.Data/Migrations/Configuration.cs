@@ -8,6 +8,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using SocialWorker.Common;
+    using SocialWorker.Data.Common.SeedUtilities;
 
 
     internal sealed class Configuration : DbMigrationsConfiguration<SocialWorkerDbContext>
@@ -34,6 +35,7 @@
             //
             this.SeedRoles(context);
             this.SeedAdmin(context);
+            this.SeedClients(context);
 
 
 
@@ -94,6 +96,52 @@
             var user = new User { UserName = "admin@socialworker.com", Email = "admin@socialworker.com" };
             userManager.Create(user, "admin");
             userManager.AddToRole(user.Id, GlobalConstants.AdministrationRoleName);
+        }
+
+        private void SeedClients(SocialWorkerDbContext context)
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            if (!roleManager.RoleExists(GlobalConstants.ClientRoleName))
+            {
+                throw new ArgumentNullException("{0} role is missing!", GlobalConstants.ClientRoleName);
+            }
+
+            var userManager = new UserManager<User>(new UserStore<User>(context));
+
+            if (roleManager.Roles.First(r => r.Name == GlobalConstants.ClientRoleName).Users.Count >= 100)
+            {
+                return;
+            }
+
+            userManager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 2,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false,
+            };
+
+            var rnd = new RandomGenerator();
+
+            for (int i = 0; i < 100; i++)
+            {
+                var userName = string.Format("client{0}@socialworker.com", i);
+
+                var client = new User
+                {
+                    UserName = userName,
+                    Email = userName,
+                    FirstName = "Client " + i,
+                    MiddleName = "Client " + i,
+                    LastName = "Client " + i,
+                    Age = rnd.GetRandomInt(45, 100),
+                    PersonalNumber = rnd.GetRandomNumericString(10)
+                };
+
+                userManager.Create(client, "client");
+                userManager.AddToRole(client.Id, GlobalConstants.ClientRoleName);
+            }
         }
 
     }
