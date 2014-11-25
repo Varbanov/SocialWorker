@@ -1,0 +1,18 @@
+﻿@using SocialWorker.Web.ViewModels.Home
+@model IEnumerable<MealViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>Is admin: @ViewBag.isAdmin</div>
+<div>Id: @ViewBag.Id</div>
+
+
+<div>
+    @foreach (var meal in Model)
+    {
+        <p>
+            @meal.Description
+        </p>
+    }
+</div>

@@ -1,0 +1,23 @@
+﻿@using SocialWorker.Web.ViewModels.Home
+@model IEnumerable<MealViewModel>
+
+@{
+    ViewBag.Title = "Navigation";
+}
+
+<h2>Navigation</h2>
+
+@(Html.Kendo()
+.Grid<MealViewModel>(Model)
+.Name("grid")
+.Columns(columns =>
+{
+    columns.Bound(pr => pr.Date);
+    columns.Bound(pr => pr.Description);
+    columns.Bound(pr => pr.User.UserName);
+})
+    .Sortable()
+    .Pageable()
+    .Filterable()
+    .Groupable()
+)
